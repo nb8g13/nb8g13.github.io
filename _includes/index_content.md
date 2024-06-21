@@ -20,4 +20,4 @@ to your problem, or conversely a machine learning specialist interested in dicus
 Email: **nicholas.bishop@cs.ox.ac.uk**
 
 ### Other Stuff
-I maintain a blog post on this website which aims to provide updates about recently accepted papers. I also occassionally write about general ideas in machine learning that pique my interest. Additionally, I am fairly active on <span style="color:blue">Twitter</span>. 
+I maintain a blog post on this website which aims to provide updates about recently accepted papers. I also occassionally write about general ideas in machine learning that pique my interest. Additionally, I am fairly active on <span style="color:blue">[Twitter](https://x.com/NickBishop5)</span>. 
