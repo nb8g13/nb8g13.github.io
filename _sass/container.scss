@@ -20,6 +20,11 @@
   min-height: calc(100vh - 159px);
 }
 
+.container-main a {
+  color:blue;
+  text-decoration: underline;
+}
+
 .container-footer {
   padding: 10px 0;
   border-top: solid 1px #aaa;
