@@ -1,6 +1,6 @@
 en:
   menu_index: 'Index'
-  menu_category: 'Categories'
+  menu_category: 'Blog'
   menu_about: 'About'
   paginator_previous: 'Previous'
   paginator_pages: 'Page: '
@@ -13,7 +13,7 @@ en:
   post_previous: 'Previous: '
   post_next: 'Next: '
   post_author: 'Author: '
-  categories_title: 'Categories'
+  categories_title: 'Blog Posts'
 
 de:
   menu_index: 'Index'
