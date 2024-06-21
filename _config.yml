@@ -2,12 +2,12 @@
 #
 # This is the configuration file for your blog, please change these items after forked.
 
-title: Your title
-email: your-email@example.com
-name: Your name
+title: Nicholas Bishop
+email: nicholas.bishop@cs.ox.ac.uk
+name: Nick Bishop
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here.
-keywords: [Your keywords]
+  Postodoctoral Researcher at the Univeristy of Oxford
+keywords: [Machine Learning, Agent-Based Modelling]
 baseurl: '' # the subpath of your site, e.g. /`blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 domain: 'example.com' # the domain name for your site, e.g. example.com
