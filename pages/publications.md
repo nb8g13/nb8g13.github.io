@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 
-For a full list of my publications I recommend checking out my [Scholar](https://scholar.google.com/citations?hl=en&user=bfaCPiYAAAAJ) profile.
+For a full list of my publications I recommend checking out my  <span style="color:blue">[Scholar](https://scholar.google.com/citations?hl=en&user=bfaCPiYAAAAJ)</span> profile.
 
 You can also find my CV here.
 
@@ -15,7 +15,7 @@ Below is a list of current working papers, as well as recent published work I am
 ## Working Papers
 
 ---
-### Interventionally Consistent Surrogates for Agent-based Simulators **\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:eQOLeE2rZwMC)\]**
+### Interventionally Consistent Surrogates for Agent-based Simulators  <span style="color:blue"> **\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:eQOLeE2rZwMC)\]**</span>
 
 **Authors**: Joel Dyer, Nicholas Bishop, Yorgos Felekis, Fabio Massimo Zennaro, Anisoara Calinescu, Theodoros Damoulas, Michael Wooldridge
 
@@ -28,7 +28,7 @@ Below is a list of current working papers, as well as recent published work I am
 ## Recent Work
 
 ---
-### Population synthesis as scenario generation for simulation-based planning under uncertainty (AAMAS 2024) **\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)\]**
+### Population synthesis as scenario generation for simulation-based planning under uncertainty (AAMAS 2024)  <span style="color:blue">**\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)\]**</span>
 
 **Authors**: Joel Dyer, Arnau Quera-Bofarull, Nicholas bishop, J. Doyne Farmer, Anisoara Calinescu, Michael Wooldridge
 
@@ -41,7 +41,7 @@ Check out my blog post explaining the key ideas behind this paper!
 
 ---
 
-### Causally abstracted multi-armed bandits (UAI 2024) **\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:WF5omc3nYNoC)\]**
+### Causally abstracted multi-armed bandits (UAI 2024)  <span style="color:blue">**\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:WF5omc3nYNoC)\]**</span>
 
 **Authors**: Fabio Massimo Zennaro, Nicholas Bishop, Joel Dyer, Yorgos Felekis, Anisoara Calinescu, Michael Wooldridge, Theodoros Damoulas 
 
