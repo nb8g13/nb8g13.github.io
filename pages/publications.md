@@ -1,3 +1,8 @@
+layout: page
+title: Publications
+permalink: /publications/
+---
+
 For a full list of my publications I recommend checking out my [Scholar](https://scholar.google.com/citations?hl=en&user=bfaCPiYAAAAJ) profile.
 
 You can also find my CV here.
