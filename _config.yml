@@ -6,11 +6,11 @@ title: Nicholas Bishop
 email: nicholas.bishop@cs.ox.ac.uk
 name: Nick Bishop
 description: >- # this means to ignore newlines until "baseurl:"
-  Postodoctoral Researcher at the Univeristy of Oxford
+ 'Machine Learning and ABMs...'
 keywords: [Machine Learning, Agent-Based Modelling]
 baseurl: '' # the subpath of your site, e.g. /`blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
-domain: 'example.com' # the domain name for your site, e.g. example.com
+domain: 'nickbishop.net' # the domain name for your site, e.g. example.com
 language: en
 # Supported languages list:
 # en: English
