@@ -27,10 +27,7 @@ Email: **nicholas.bishop@cs.ox.ac.uk**
 I maintain a blog post on this website which aims to provide updates about recently accepted papers. I also occassionally write about general ideas in machine learning that pique my interest. Additionally, I am fairly active on Twitter.     
 </div> -->
 
-<div markdown="1">
-
-# Hello worlds
-
-</div>
+{% capture my_include %}{% include index_context.md %}{% endcapture %}
+{{ my_include | markdownify }}
 
 <!-- {% include index_content.md %} -->
