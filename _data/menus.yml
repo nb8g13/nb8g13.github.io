@@ -4,7 +4,7 @@
 - default: menu_category
   url: 'categories'
 
-- default: 'Publications'
+- title: 'Publications'
   url: 'publications'
 
 # - title: 'Jekyll Paper for Github'
