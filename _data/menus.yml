@@ -8,8 +8,11 @@
 #   absoluteUrl: true
 #   url: 'https://github.com/ghosind/Jekyll-Paper-Github'
 
-- title: 'PDF-test'
-  url: 'assets/AAMAS_poster-3.pdf'
+# - title: 'PDF-test'
+#   url: 'assets/AAMAS_poster-3.pdf'
 
 # - default: menu_about
 #   url: 'about'
+
+- default: 'Publications'
+  url: 'publications'
