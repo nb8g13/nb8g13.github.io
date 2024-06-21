@@ -3,7 +3,7 @@
 I am a postodctoral researcher at the University of Oxford. More specifically, 
 I work within the Department of Computer Science on the Large Agent Collider (LAC) 
 project. During my PhD at the Univeristy of Southampton, I studied a variety of problems at the intersection of mechanism design and machine learning under the joint supervision of 
-Prof Long Tran-Thanh and Prof. Enrico Gerding.
+Prof. Long Tran-Thanh and Prof. Enrico Gerding.
 
 I am currently focused on applying state-of-the-art machine
 learning methods to rapidly calibrate, analyse and validate agent-based models (ABMs) of large-scale complex systems. My recent work includes the use of generalised variational inference to search for realistic synthetic populations, 
