@@ -14,7 +14,7 @@ Designing an agent-based model (ABM) invetiably invovles generating a population
 
 So, what is the problem with this approach? It seems completely reasonable, but there are some issues. Firstly, the modeller might no have access to real-world data. This could be due to privacy concerns, or simply because the required data wasn't collected in the first place. In addition, the agent-based model is never used to inform population design. Say you are an epidemiologist who has built an epidemic simulator for the UK. If you run your simulator and every individual gets infected within a single day, you may suspect that your synthetic population is not very representative.
 
-In this work, we provide an altenative approach for generating synthetic populations which directly leverages the ABM. In what follows, we will think of an ABM as a stochastic simulator $p$, which takes a set of structural parameters $$\omega$$ as well as an population of agents $$\mathcal{A}_{N}$$ and produces an output state $$x \in \mathcal{X}$$.
+In this work, we provide an altenative approach for generating synthetic populations which directly leverages the ABM. In what follows, we will think of an ABM as a stochastic simulator $$p$$, which takes a set of structural parameters $$\omega$$ as well as an population of agents $$\mathcal{A}_{N}$$ and produces an output state $$x \in \mathcal{X}$$.
 
 $$
 x \sim p(\cdot \mid \omega, \mathcal{A}_{N})
