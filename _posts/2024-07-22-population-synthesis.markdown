@@ -6,17 +6,15 @@ last_modified_at: 2019-10-16
 categories: [Jekyll Paper]
 ---
 
-Hello world!
-
-This blog post covers a recent paper called **Population Synthesis as Scenario Generation** which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. You can check it out [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
+This blog post outlines **Population Synthesis as Scenario Generation** a recent paper which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. This work was published at AAMAS 2024 - check out the full paper [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
 
 ## Synthetic Populations and ABMs
 
-Designing an agent-based model (ABM) invetiably invovles designing a population of agents. Typically, modellers rely on access to some datasets, normally in the form of cross-tables, describing the underlying real-world population they are seeking to model. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents whose statistics closely match the data. For instance, a popular appaorach is to use a variant of iterative proportional fitting (which economists often call raking) to fit to cross-table statistics.
+Designing an agent-based model (ABM) invetiably invovles generating a population of agents. Typically, modellers rely on datasets describing the underlying real-world population they are seeking to emulate. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents whose statistics closely match the data. For instance, many practitioners use iterative proportional fitting (which economists often call raking) to generate a synthetic population from cross-tables that has the correct marginal statistics.
 
-So, what is the problem with this approach? It seems like a completely reasonable thing to do, but there are some issues. Firstly, the modeller might no have access to real-world data. This could be due to privacy concerns, or simply because the required data wasn't collected in the first place. In addition, this procedure does not make use of the agent-based model to better inform population design. For example, consider you are an epidemiologist who has built an epidemic simulator for the UK. If you run your simulator and every citizen gets infected in a single day, you may suspect that your synthetic population is very representative of the real one.
+So, what is the problem with this approach? It seems completely reasonable, but there are some issues. Firstly, the modeller might no have access to real-world data. This could be due to privacy concerns, or simply because the required data wasn't collected in the first place. In addition, the agent-based model is never used to inform population design. Say you are an epidemiologist who has built an epidemic simulator for the UK. If you run your simulator and every individual gets infected within a single day, you may suspect that your synthetic population is not very representative.
 
-In this work, we provide an altenative approach for generating synthetic populations which directly leverages the ABM. In what follows, we will think of an ABM as a stochastic simulator $p$, which takes a set of structural parameters $\omega$ as well as an population of agents $\mathcal{A}_{N}$ and produces an output state $x \in \mathcal{X}$.
+In this work, we provide an altenative approach for generating synthetic populations which directly leverages the ABM. In what follows, we will think of an ABM as a stochastic simulator $p$, which takes a set of structural parameters $$\omega$$ as well as an population of agents $$\mathcal{A}_{N}$$ and produces an output state $$x \in \mathcal{X}$$.
 
 $$
 x \sim p(\cdot \mid \omega, \mathcal{A}_{N})
