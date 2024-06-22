@@ -52,19 +52,19 @@ Once we have the agent population and the structural parameters, we can proceed 
 
 ```mermaid
 graph LR
-    prop("`Proposal 
-    distribution`")
+    prop("Proposal <br>
+    distribution")
     param("Population <br>
     parameters")
-    attr(Attribute <br>
-    distribution)
-    struct(Structural <br>
-    Parameters)
-    pop(Agent <br>
-    Population)
-    sim(ABM)
-    state(Output <br>
-    State)
+    attr("Attribute <br>
+    distribution")
+    struct("Structural <br>
+    Parameters")
+    pop("Agent <br>
+    Population")
+    sim("ABM")
+    state("Output <br>
+    State")
 
     prop --> param & struct
     param --> attr
