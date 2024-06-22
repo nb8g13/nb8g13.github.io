@@ -51,20 +51,14 @@ $$
 Once we have the agent population and the structural parameters, we can proceed as before and forward-simulate the ABM to get an output $x \in \mathcal{X}$. Our approach is summarised in the following diagram:
 
 ```mermaid
-graph LR
-    prop("Proposal <br>
-    distribution")
-    param("Population <br>
-    parameters")
-    attr("Attribute <br>
-    distribution")
-    struct("Structural <br>
-    Parameters")
-    pop("Agent <br>
-    Population")
+graph TD
+    prop("Proposal distribution")
+    param("Population parameters")
+    attr("Attribute distribution")
+    struct("Structural Parameters")
+    pop("Agent Population")
     sim("ABM")
-    state("Output <br>
-    State")
+    state("Output State")
 
     prop --> param & struct
     param --> attr
