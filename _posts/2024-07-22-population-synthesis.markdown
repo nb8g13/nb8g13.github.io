@@ -3,7 +3,7 @@ layout: post
 title: "Population Synthesis as Scenario Generation"
 date: 2018-02-11
 last_modified_at: 2019-10-16
-categories: [Jekyll Paper]
+categories: [Recent Papers]
 ---
 
 This blog post outlines a recent paper which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. This work was published at AAMAS 2024 - check out the full paper [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
