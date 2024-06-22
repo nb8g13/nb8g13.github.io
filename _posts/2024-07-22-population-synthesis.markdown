@@ -10,9 +10,9 @@ This blog post outlines a recent paper which I worked on with my fantastic colla
 
 ## Synthetic Populations and ABMs
 
-Designing an agent-based model (ABM) invetiably invovles generating a population of agents. Typically, modellers rely on datasets describing the underlying real-world population they are seeking to emulate. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents whose statistics closely match the data. For instance, many practitioners use iterative proportional fitting (which economists often call raking) to generate a synthetic population from cross-tables that has the correct marginal statistics.
+Designing an agent-based model (ABM) invetiably invovles generating a population of agents. Typically, modellers rely on datasets describing the underlying real-world population they are seeking to emulate. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents with realistic statistics. For instance, many practitioners use iterative proportional fitting (which economists often call raking) to generate a synthetic population that has the correct marginal statistics using cross-table data.
 
-So, what is the problem with this approach? It seems completely reasonable, but there are some issues. Firstly, the modeller might no have access to real-world data. This could be due to privacy concerns, or simply because the required data wasn't collected in the first place. In addition, the agent-based model is never used to inform population design. Say you are an epidemiologist who has built an epidemic simulator for the UK. If you run your simulator and every individual gets infected within a single day, you may suspect that your synthetic population is not very representative.
+So, what is the problem with this approach? It seems completely reasonable, but there are some issues. Firstly, the modeller might not have access to real-world data. This could be due to privacy concerns, or simply because the required data wasn't collected in the first place. In addition, the agent-based model is never used to inform population design. Say you are an epidemiologist who has built an epidemic simulator for the UK. If you run your simulator and every individual gets infected within a single day, you may suspect that your synthetic population is not very representative.
 
 In this work, we provide an altenative approach for generating synthetic populations which directly leverages the ABM. In what follows, we will think of an ABM as a stochastic simulator $$p$$, which takes a set of structural parameters $$\omega$$ as well as an population of agents $$\mathcal{A}_{N}$$ and produces an output state $$x \in \mathcal{X}$$.
 
@@ -40,15 +40,15 @@ graph LR
     
 ```
 
-That is, we query the domain expert for the structural paramaters $$\omega$$ and population $$\mathcal{A}_{N}$$ then forward-simulate the ABM $$p$$ get an output state $$x \in \mathcal{X}$$. Of course, a domain expert rarely has perfect information. As already discussed, the domain expert may have insufficient data to estimate population structure. Likewise, the domain expert may have imperfect knowledge about the structural parameters. In the worst-case the modeller may not even have access to a domain expert at all!
+That is, we query the domain expert for the structural paramaters $$\omega$$ and population $$\mathcal{A}_{N}$$ then forward-simulate the ABM $$p$$ to get an output state $$x \in \mathcal{X}$$. Of course, a domain expert rarely has perfect information. As already discussed, the domain expert may have insufficient data to estimate population structure. Likewise, the domain expert may have imperfect knowledge about the structural parameters. In the worst-case the modeller may not even have access to a domain expert at all!
 
-In our work, we aim to resolve these issues by replacing the domain expert in the diagram above with a **proposal distribution** $$q$$ which aims to generate good sturctural parameters and populations. Instead of generating both the population and structural parameters jointly from the proposal distribution in one step, we generate structural parameters and population parameters $$\theta$$ from the proposal distribution. The population parameters, parameterise an attribute distribution $$f$$ from which the agent population is generated.
+In our work, we aim to resolve these issues by replacing the domain expert in the diagram above with a **proposal distribution** $$q$$ which aims to generate good sturctural parameters and populations. Instead of generating both the population and structural parameters jointly from the proposal distribution in one step, we generate structural parameters and population parameters $$\theta$$ from the proposal distribution. The population parameters are used to parameterise an attribute distribution $$f$$ from which the agent population is finally generated.
 
 $$
 \mathcal{A}_{N} \sim f(\cdot \mid \theta)
 $$
 
-Once we have the agent population and the structural parameters, we can proceed as before and forward-simulate the ABM to get an output $$x \in \mathcal{X}$$. Our approach is summarised in the following diagram:
+Once we have the agent population and the structural parameters, we can proceed as before and forward-simulate the ABM to get an output state $$x \in \mathcal{X}$$. Our approach is summarised by the following diagram:
 
 ```mermaid
 graph TD
@@ -78,25 +78,25 @@ $$
 \ell(x) = \frac{1}{T}\sum^{T}_{t=1}(y_{t} - x_{t})^{2}
 $$
 
-where we have assumed the output of the simulator is a time-series of infections $$x = (x_{t})_{t=1}^{T}$$. Alternatively, let's assume the epddemiologist is interested in any outcome where more than $$\tau$$ individuals are infected. In this case, the epdemiologist may choose the following loss function:
+where we have assumed the output of the simulator is a time-series of infections $$x = (x_{t})_{t=1}^{T}$$. Alternatively, let's assume the epidemiologist is interested in any outcome where more than $$\tau$$ individuals are infected. In this case, the epdemiologist may choose the following loss function:
 
 $$
 \ell(x) = \mathbb{I}(\cdot \leq \tau)(x)
 $$
 
-where we have assumed the output $$x$$ of the ABM describes the total number of infections over the simulation run. Here $$\mathbb{I}(\cdot \geq \tau)$$ describes the indicator function that reuturns $$1$$ when $$x$$ is greater than $\tau$ and $$0$$ otherwise.
+where we have assumed the output $$x$$ of the ABM describes the total number of infections over the simulation run. Here $$\mathbb{I}(\cdot \geq \tau)$$ denotes the indicator function that reuturns $$1$$ when $$x$$ is less than $\tau$ and $$0$$ otherwise.
 
-Given the loss function $$\ell$$, we propose many algorithms for learning a good proposal distribution $$q$$ by repeatedly sampling simulation runs from the ABM. Note that our approaches require no external data once the loss function has been defined! For the remainder of this post i will go through my personal favourite method for learning $$q$$ out of the ones we propose. You can check out the other methods in the paper!
+Given the loss function $$\ell$$, we propose many algorithms for learning a good proposal distribution $$q$$ by repeatedly sampling simulation runs from the ABM. Note that our approaches require no external data once the loss function has been defined! For the remainder of this post I will go walkthrough my favourite method for learning $$q$$ out of the ones we propose. You can check out the other methods in the [paper](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
 
 ## Learning a Proposal Distribution through Variational Optimisation
 
-One way to learn a suitable proposal is to take a variational approach. That is, we may consider a parameterised family of proposal distributions:
+One way to learn a suitable proposal distribution is to take a variational approach. That is, we may consider a parameterised family of proposal distributions:
 
 $$
 \mathcal{Q} = \{q(\cdot \mid \phi) \mid \phi \in \Phi\}.
 $$
 
-In our experiments, we take $$\mathcal{Q}$$ to be a normalizing flow. To select a proposal distribution $$q^{\star}$$ from $$\mathcal{Q}$$, we solve the following variational optimisation problem:
+In our experiments, we take $$\mathcal{Q}$$ to be a normalizing flow. Then, to select an ideal proposal distribution $$q^{\star}$$ from $$\mathcal{Q}$$, we solve the following variational optimisation problem:
 
 $$
 q^{\star} = \arg\min_{\phi \in \Phi} \left\{
@@ -106,7 +106,7 @@ q^{\star} = \arg\min_{\phi \in \Phi} \left\{
 \right\}.
 $$
 
-Here, $$\mathcal{L}$$ denotes lifted loss over the structural paramaters $\omega$ and population paramaters $$\theta$$ constructed using the domain expert supplied loss $$\ell$$:
+Here, $$\mathcal{L}$$ denotes lifted loss over the structural paramaters $$\omega$$ and population paramaters $$\theta$$ constructed using the domain expert supplied loss $$\ell$$:
 
 $$
 \mathcal{L}(\omega, \theta) = \mathbb{E}_{x \sim p(x \mid \omega, \theta)}
@@ -121,7 +121,7 @@ As mentioned before, we use normalising flows in our experiments to define the v
 
 ## A Simple Example
 
-To finish, let's run through a simple example of our approach. We will consider Axtell's model of firms. This model studies the evolution of financial firms over time. The model consists of a set of agents, who each belong to a particular firm on each time step. Each agent $$n$$ works with some effort level $$e^{t}_{n} \in [0, 1]$$ at time $$t$$ and periodically reeavluates their situation at an agent-specific rate $$\rho_{n}$$. In addition, each agent maintains parameters $$\nu_{n} \in [0, 1]$$ describing their preference for leisure vs income. When reevaluating, agents decide between
+To finish, let's run through a simple example of our approach. We will consider Axtell's model of firms. This model studies the evolution of financial firms over time. The model consists of a set of agents, who each belong to a particular firm at each time step. Each agent $$n$$ works with some effort level $$e^{t}_{n} \in [0, 1]$$ at time $$t$$ and periodically reeavluates their situation at an agent-specific rate $$\rho_{n}$$. In addition, each agent maintains a parameter  $$\nu_{n} \in [0, 1]$$ describing their preference for leisure vs income. When reevaluating, agents decide between
 - adjusting their effort level
 - moving to an existing firm
 - or starting a new firm.
@@ -130,7 +130,7 @@ You can find full details about the model in our paper. Now assume that we are m
 
 <p align=center><b>Can an initially hardworking population become lazy over time?</b></p>
 
-To answer this question we first need to construct a suitable loss function. In this case, we can choose a simple loss function that measurs the difference between the average effort of agents at the beginning and end of the time horizon:
+To answer this question we first need to construct a suitable loss function. In this case, we can choose a simple loss function that measures the difference between the average effort of agents at the beginning and end of the time horizon:
 
 $$
 \ell(x) = \frac{1}{N}\sum^{N}_{n=1}\left(e^{1}_{n} - e^{0}_{n}\right),
@@ -158,7 +158,7 @@ The blue and green plots correspond to proposal distributions we found using var
 - Agents need to **reeavluate their position on a relatively frequent basis**. This is manifested by relatively high/low densities assigned to $$g_{a}$$ and $$g_{b}$$ respectively, which translates to a left-skewed distribution over $$\nu_{n}$$.
 - Agents need a **strong preference for leisure over income**. This is manifested by high density assigned to both $$\varrho_{a}$$ and $$\varrho_{b}$$, which increases the mass assigned by the gamma distribution to higher values of $$\rho_{n}$$.
 
-Check out the full paper for more examples!
+Check out the full [paper](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C) for more examples!
  
 ## Code
 If you want to apply our framework in your own research I highly recommend checking out [SynthPop](https://github.com/joelnmdyer/synthpop), which is a Python package we developed for precisely this reason!
