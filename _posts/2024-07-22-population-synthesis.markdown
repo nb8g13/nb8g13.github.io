@@ -40,15 +40,15 @@ graph LR
     
 ```
 
-That is, we query the domain expert for the structural paramaters $\omega$ and population $\mathcal{A}_{N}$ then forward-simulate the ABM $p$ get an output state $x \in \mathcal{X}$. Of course, a domain expert rarely has perfect information. As already discussed, the domain expert may have insufficient data to estimate population structure. Likewise, the domain expert may have imperfect knowledge about the structural parameters. In the worst-case the modeller may not even have access to a domain expert at all!
+That is, we query the domain expert for the structural paramaters $$\omega$$ and population $$\mathcal{A}_{N}$$ then forward-simulate the ABM $$p$$ get an output state $$x \in \mathcal{X}$$. Of course, a domain expert rarely has perfect information. As already discussed, the domain expert may have insufficient data to estimate population structure. Likewise, the domain expert may have imperfect knowledge about the structural parameters. In the worst-case the modeller may not even have access to a domain expert at all!
 
-In our work, we aim to resolve these issues by replacing the domain expert in the diagram above with a **proposal distribution** $q$ which aims to generate good sturctural parameters and populations. Instead of generating both the population and structural parameters jointly from the proposal distribution in one step, we generate structural parameters and population parameters $\theta$ from the proposal distribution. The population parameters, parameterise an attribute distribution $f$ from which the agent population is generated.
+In our work, we aim to resolve these issues by replacing the domain expert in the diagram above with a **proposal distribution** $$q$$ which aims to generate good sturctural parameters and populations. Instead of generating both the population and structural parameters jointly from the proposal distribution in one step, we generate structural parameters and population parameters $$\theta$$ from the proposal distribution. The population parameters, parameterise an attribute distribution $$f$$ from which the agent population is generated.
 
 $$
 \mathcal{A}_{N} \sim f(\cdot \mid \theta)
 $$
 
-Once we have the agent population and the structural parameters, we can proceed as before and forward-simulate the ABM to get an output $x \in \mathcal{X}$. Our approach is summarised in the following diagram:
+Once we have the agent population and the structural parameters, we can proceed as before and forward-simulate the ABM to get an output $$x \in \mathcal{X}$$. Our approach is summarised in the following diagram:
 
 ```mermaid
 graph TD
@@ -68,25 +68,25 @@ graph TD
 
 ```
 
-Of course, in order for this approach to work we need to pick a good proposal distribution. In learning the proposal distirbution, we suffer from similar issues to a domain expert that lacks knowledge or data. However, typically a modeller knows what kind of outputs they are interested in. For example, an epidemiologist may be trying to fit their ABM to a real-world time series $(y_{t})^{T}_{t=1}$, or they may be interested in searching for populations where the risk of contagion (number of infected citizens) is high. Our key idea is that the modeller's preferences over state outputs can be used in conjunction with the ABM to learn a good proposal distribution.
+Of course, in order for this approach to work we need to pick a good proposal distribution. In learning the proposal distirbution, we suffer from similar issues to a domain expert that lacks knowledge or data. However, typically a modeller knows what kind of outputs they are interested in. For example, an epidemiologist may be trying to fit their ABM to a real-world time series $$(y_{t})^{T}_{t=1}$$, or they may be interested in searching for populations where the risk of contagion (number of infected citizens) is high. Our key idea is that the modeller's preferences over state outputs can be used in conjunction with the ABM to learn a good proposal distribution.
 
 ## Learning a Proposal Distirbution
 
-In order to do this, we assume that the modeller/domain expert has provided us with a loss function $\ell: \mathcal{X} \to \mathbb{R}_{+}$ describing their preferences over ABM outputs. For example, an epidemiologist trying to fit to a real-world time series of infections $(y_{t})^{T}_{t=1}$ may propose the following loss function:
+In order to do this, we assume that the modeller/domain expert has provided us with a loss function $$\ell: \mathcal{X} \to \mathbb{R}_{+}$$ describing their preferences over ABM outputs. For example, an epidemiologist trying to fit to a real-world time series of infections $$(y_{t})^{T}_{t=1}$$ may propose the following loss function:
 
 $$
 \ell(x) = \frac{1}{T}\sum^{T}_{t=1}(y_{t} - x_{t})^{2}
 $$
 
-where we have assumed the output of the simulator is a time-series of infections $x = (x_{t})_{t=1}^{T}$. Alternatively, let's assume the epddemiologist is interested in any outcome where more than $\tau$ individuals are infected. In this case, the epdemiologist may choose the following loss function:
+where we have assumed the output of the simulator is a time-series of infections $$x = (x_{t})_{t=1}^{T}$$. Alternatively, let's assume the epddemiologist is interested in any outcome where more than $$\tau$$ individuals are infected. In this case, the epdemiologist may choose the following loss function:
 
 $$
 \ell(x) = \mathbb{I}(\cdot \leq \tau)(x)
 $$
 
-where we have assumed the output $x$ of the ABM describes the total number of infections over the simulation run. Here $\mathbb{I}(\cdot \geq \tau)$ describes the indicator function that reuturns $1$ when $x$ is greater than $\tau$ and $0$ otherwise.
+where we have assumed the output $$x$$ of the ABM describes the total number of infections over the simulation run. Here $$\mathbb{I}(\cdot \geq \tau)$$ describes the indicator function that reuturns $$1$$ when $$x$$ is greater than $\tau$ and $$0$$ otherwise.
 
-Given the loss function $\ell$, we propose many algorithms for learning a good proposal distribution $q$ by repeatedly sampling simulation runs from the ABM. Note that our approaches require no external data once the loss function has been defined! For the remainder of this post i will go through my personal favourite method for learning $q$ out of the ones we propose. You can check out the other methods in the paper!
+Given the loss function $$\ell$$, we propose many algorithms for learning a good proposal distribution $$q$$ by repeatedly sampling simulation runs from the ABM. Note that our approaches require no external data once the loss function has been defined! For the remainder of this post i will go through my personal favourite method for learning $$q$$ out of the ones we propose. You can check out the other methods in the paper!
 
 ## Learning a Proposal Distribution through Variational Optimisation
 
@@ -96,7 +96,7 @@ $$
 \mathcal{Q} = \{q(\cdot \mid \phi) \mid \phi \in \Phi\}.
 $$
 
-In our experiments, we take $\mathcal{Q}$ to be a normalizing flow. To select a proposal distribution $q^{\star}$ from $\mathcal{Q}$, we solve the following variational optimisation problem:
+In our experiments, we take $$\mathcal{Q}$$ to be a normalizing flow. To select a proposal distribution $$q^{\star}$$ from $$\mathcal{Q}$$, we solve the following variational optimisation problem:
 
 $$
 q^{\star} = \arg\min_{\phi \in \Phi} \left\{
@@ -106,22 +106,22 @@ q^{\star} = \arg\min_{\phi \in \Phi} \left\{
 \right\}.
 $$
 
-Here, $\mathcal{L}$ denotes lifted loss over the structural paramaters $\omega$ and population paramaters $\theta$ constructed using the domain expert supplied loss $\ell$:
+Here, $$\mathcal{L}$$ denotes lifted loss over the structural paramaters $\omega$ and population paramaters $$\theta$$ constructed using the domain expert supplied loss $$\ell$$:
 
 $$
 \mathcal{L}(\omega, \theta) = \mathbb{E}_{x \sim p(x \mid \omega, \theta)}
 \left[ \ell(x) \right].
 $$
 
-Roughly speaking, $\mathcal{L}(\omega, \theta)$ captures the average loss experienced by the domain expert when $\omega$ and $\theta$ are used to forward-simulate the ABM using the approach outlined in the previous diagram. As a result, the first term in the objective above captures the average loss experienced by the domain expert when structural parameters and population parameters are sampled from the proposal distirbution $q$.
+Roughly speaking, $$\mathcal{L}(\omega, \theta)$$ captures the average loss experienced by the domain expert when $$\omega$$ and $$\theta$$ are used to forward-simulate the ABM using the approach outlined in the previous diagram. As a result, the first term in the objective above captures the average loss experienced by the domain expert when structural parameters and population parameters are sampled from the proposal distirbution $$q$$.
 
-Meanwhile $\mathbb{H}$ denotes the entropy function. Thus the second term penalises the proposal distribution for accumulating too much probability mass on a small subset of structural and population parameter values. The trade-off between both terms is controlled by the scalar parameter $\gamma > 0$ which the modeller is free to choose. Note that a large $\gamma$ will encourage greater diversity, whilst setting $\gamma = 0$ causes $q^{\star}$ to collapse to a degenerate distribution whose mass is concentrated on the pairs $(\omega, \theta)$ that minimise $\mathcal{L}$.
+Meanwhile $$\mathbb{H}$$ denotes the entropy function. Thus the second term penalises the proposal distribution for accumulating too much probability mass on a small subset of structural and population parameter values. The trade-off between both terms is controlled by the scalar parameter $$\gamma > 0$$ which the modeller is free to choose. Note that a large $$\gamma$$ will encourage greater diversity, whilst setting $$\gamma = 0$$ causes $$q^{\star}$$ to collapse to a degenerate distribution whose mass is concentrated on the pairs $$(\omega, \theta)$$ that minimise $$\mathcal{L}$$.
 
-As mentioned before, we use normalising flows in our experiments to define the variational family $\mathcal{Q}$. As a result, we can readily solve the variational problem above by performing stochastic gradient descent on the paramaters $\phi$, which correspond to network weights within the normalising flow.
+As mentioned before, we use normalising flows in our experiments to define the variational family $$\mathcal{Q}$$. As a result, we can readily solve the variational problem above by performing stochastic gradient descent on the paramaters $$\phi$$, which correspond to network weights within the normalising flow.
 
 ## A Simple Example
 
-To finish, let's run through a simple example of our approach. We will consider Axtell's model of firms. This model studies the evolution of financial firms over time. The model consists of a set of agents, who each belong to a particular firm on each time step. Each agent $n$ works with some effort level $e^{t}_{n} \in [0, 1]$ at time $t$ and periodically reeavluates their situation at an agent-specific rate $\rho_{n}$. In addition, each agent maintains parameters $\nu_{n} \in [0, 1]$ describing their preference for leisure vs income. When reevaluating, agents decide between
+To finish, let's run through a simple example of our approach. We will consider Axtell's model of firms. This model studies the evolution of financial firms over time. The model consists of a set of agents, who each belong to a particular firm on each time step. Each agent $$n$$ works with some effort level $$e^{t}_{n} \in [0, 1]$$ at time $$t$$ and periodically reeavluates their situation at an agent-specific rate $$\rho_{n}$$. In addition, each agent maintains parameters $$\nu_{n} \in [0, 1]$$ describing their preference for leisure vs income. When reevaluating, agents decide between
 - adjusting their effort level
 - moving to an existing firm
 - or starting a new firm.
@@ -144,7 +144,7 @@ $$
  
 where $$\theta = (\varepsilon_{a}, \varepsilon_b, g_a, g_b, \varrho_a, \varrho_b)$$. There are no structural parameters in this model, so we don't need to worry about them.
 
-We are now ready to learn a proposal distribution. The plot below shows the average effort of agents over time from simulation runs generated by different proposal distributions. In particular, the right-hand plot shows simulation runs generated by proposal distributions trained with our variational approach for different values of $\gamma$. When comparing these runs to those generated from a uniform proposal distribution we see a marked difference. Proposal distributions trained via our variational approach clearly produce populations of agents that consistently result in decaying effort over time.
+We are now ready to learn a proposal distribution. The plot below shows the average effort of agents over time from simulation runs generated by different proposal distributions. In particular, the right-hand plot shows simulation runs generated by proposal distributions trained with our variational approach for different values of $$\gamma$$. When comparing these runs to those generated from a uniform proposal distribution we see a marked difference. Proposal distributions trained via our variational approach clearly produce populations of agents that consistently result in decaying effort over time.
 
 ![Average Effort Over Time](assets/images/axtell_effort.pdf)
 
@@ -154,9 +154,9 @@ Since our attribute distribution is simple, we can look at our proposal distribu
 
 The blue and green plots correspond to proposal distributions we found using variational optimisation. We can make several observations immediately:
 
-- Agents need to **begin with high effort levels**. This is evidenced by the proposal distributions assigning higher density to larger/lower values of $\varepsilon_{a}$ and $\varepsilon_{b}$ respectively. 
-- Agents need to **reeavluate their position on a relatively frequent basis**. This is manifested by relatively high/low densities assigned to $g_{a}$ and $g_{b}$ respectively, which translates to a left-skewed distribution over $\nu_{n}$.
-- Agents need a **strong preference for leisure over income**. This is manifested by high density assigned to both $\varrho_{a}$ and $\varrho_{b}$, which increases the mass assigned by the gamma distribution to higher values of $\rho_{n}$.
+- Agents need to **begin with high effort levels**. This is evidenced by the proposal distributions assigning higher density to larger/lower values of $$\varepsilon_{a}$$ and $$\varepsilon_{b}$$ respectively. 
+- Agents need to **reeavluate their position on a relatively frequent basis**. This is manifested by relatively high/low densities assigned to $$g_{a}$$ and $$g_{b}$$ respectively, which translates to a left-skewed distribution over $$\nu_{n}$$.
+- Agents need a **strong preference for leisure over income**. This is manifested by high density assigned to both $$\varrho_{a}$$ and $$\varrho_{b}$$, which increases the mass assigned by the gamma distribution to higher values of $$\rho_{n}$$.
 
 Check out the full paper for more examples!
  
