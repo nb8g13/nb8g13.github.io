@@ -6,7 +6,7 @@ last_modified_at: 2019-10-16
 categories: [Jekyll Paper]
 ---
 
-This blog post outlines **Population Synthesis as Scenario Generation** a recent paper which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. This work was published at AAMAS 2024 - check out the full paper [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
+This blog post outlines a recent paper which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. This work was published at AAMAS 2024 - check out the full paper [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
 
 ## Synthetic Populations and ABMs
 
@@ -54,17 +54,17 @@ Once we have the agent population and the structural parameters, we can proceed 
 graph LR
     prop("`Proposal 
     distribution`")
-    param("`Population 
-    parameters`")
-    attr("`Attribute 
-    distribution`")
-    struct("`Structural 
-    Parameters`")
-    pop("`Agent 
-    Population`")
-    sim("ABM")
-    state("`Output 
-    State`")
+    param("Population <br>
+    parameters")
+    attr(Attribute <br>
+    distribution)
+    struct(Structural <br>
+    Parameters)
+    pop(Agent <br>
+    Population)
+    sim(ABM)
+    state(Output <br>
+    State)
 
     prop --> param & struct
     param --> attr
