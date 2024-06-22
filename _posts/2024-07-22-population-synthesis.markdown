@@ -160,5 +160,5 @@ The blue and green plots correspond to proposal distributions we found using var
 
 Check out the full paper for more examples!
  
- ## Code
- If you want to apply our framework in your own research I highly recommend checking out [SynthPop](https://github.com/joelnmdyer/synthpop), which is a Python package we developed for precisely this reason!
+## Code
+If you want to apply our framework in your own research I highly recommend checking out [SynthPop](https://github.com/joelnmdyer/synthpop), which is a Python package we developed for precisely this reason!
