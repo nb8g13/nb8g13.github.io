@@ -8,7 +8,7 @@ categories: [Jekyll Paper]
 
 Hello world!
 
-<!-- This blog post covers a recent paper called **Population Synthesis as Scenario Generation** which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. You can check it out [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
+This blog post covers a recent paper called **Population Synthesis as Scenario Generation** which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. You can check it out [here](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
 
 ## Synthetic Populations and ABMs
 
@@ -163,4 +163,4 @@ The blue and green plots correspond to proposal distributions we found using var
 Check out the full paper for more examples!
  
  ## Code
- If you want to apply our framework in your own research I highly recommend checking out [SynthPop](https://github.com/joelnmdyer/synthpop), which is a Python package we developed for precisely this reason! -->
+ If you want to apply our framework in your own research I highly recommend checking out [SynthPop](https://github.com/joelnmdyer/synthpop), which is a Python package we developed for precisely this reason!
