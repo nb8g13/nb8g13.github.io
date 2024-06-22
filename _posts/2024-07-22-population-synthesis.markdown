@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Population Synthesis as Scenario Generation"
-date: 24-07-22
-last_modified_at: 24-07-22
+date: 2024-07-22
+last_modified_at: 2024-07-22
 categories: [Recent Papers]
 ---
 
