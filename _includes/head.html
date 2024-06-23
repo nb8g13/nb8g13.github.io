@@ -41,7 +41,7 @@
 <script src="{{ site.baseurl }}/assets/scripts/jekyllpaper.js" async></script>
 <script
   src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"
-  onload="javascript:loadMermaid();"
+  onload="javascript:$(document).ready( function () {loadMermaid();});"
   async>
 </script>
 {% endif %}
