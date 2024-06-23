@@ -123,7 +123,7 @@ To finish, let's run through a simple example of our approach. We will consider 
 - moving to an existing firm
 - or starting a new firm.
 
-You can find full details about the model in our paper. Now assume that we are modeller interested in the following question:
+You can find full details about the model in our paper. Now assume that we are a modeller interested in the following question:
 
 <p align=center><b>Can an initially hardworking population become lazy over time?</b></p>
 
