@@ -38,10 +38,17 @@
 </script>
 {% endif %}
 {% if site.diagram %}
-<script src="{{ site.baseurl }}/assets/scripts/jekyllpaper.js"></script>
-<script
+<!-- <script src="{{ site.baseurl }}/assets/scripts/jekyllpaper.js"></script> -->
+<!-- <script
   src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"
   onload="javascript:loadMermaid();"
 >
+</script> -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: false, them: 'default', });
+  await mermaid.run({
+    querySelector: 'pre code.language-mermaid',
+  });
 </script>
 {% endif %}
