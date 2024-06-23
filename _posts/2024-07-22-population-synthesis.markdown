@@ -36,8 +36,7 @@ graph LR
 
     expert --> struct & pop
     struct & pop --> sim
-    sim --> state
-    
+    sim --> state 
 ```
 
 That is, we query the domain expert for the structural paramaters $$\omega$$ and population $$\mathcal{A}_{N}$$ then forward-simulate the ABM $$p$$ to get an output state $$x \in \mathcal{X}$$. Of course, a domain expert rarely has perfect information. As already discussed, the domain expert may have insufficient data to estimate population structure. Likewise, the domain expert may have imperfect knowledge about the structural parameters. In the worst-case the modeller may not even have access to a domain expert at all!
@@ -65,7 +64,6 @@ graph TD
     attr --> pop
     struct & pop --> sim
     sim --> state
-
 ```
 
 Of course, in order for this approach to work we need to pick a good proposal distribution. In learning the proposal distirbution, we suffer from similar issues to a domain expert that lacks knowledge or data. However, typically a modeller knows what kind of outputs they are interested in. For example, an epidemiologist may be trying to fit their ABM to a real-world time series $$(y_{t})^{T}_{t=1}$$, or they may be interested in searching for populations where the risk of contagion (number of infected citizens) is high. Our key idea is that the modeller's preferences over state outputs can be used in conjunction with the ABM to learn a good proposal distribution.
