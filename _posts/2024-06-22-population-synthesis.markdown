@@ -103,7 +103,7 @@ q^{\star} = \arg\min_{\phi \in \Phi} \left\{
 \right\}.
 $$
 
-Here, $$\mathcal{L}$$ denotes lifted loss over the structural paramaters $$\omega$$ and population paramaters $$\theta$$ constructed using the domain expert supplied loss $$\ell$$:
+Here, $$\mathcal{L}$$ denotes a lifted loss over the structural and population parameters $$(\omega, \theta)$$ constructed using the domain expert supplied loss $$\ell$$:
 
 $$
 \mathcal{L}(\omega, \theta) = \mathbb{E}_{x \sim p(x \mid \omega, \theta)}
