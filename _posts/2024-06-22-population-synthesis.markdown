@@ -81,7 +81,7 @@ $$
 \ell(x) = \mathbb{I}(\cdot \leq \tau)(x)
 $$
 
-where we have assumed the output $$x$$ of the ABM describes the total number of infections over the simulation run. Here $$\mathbb{I}(\cdot \geq \tau)$$ denotes the indicator function that reuturns $$1$$ when $$x$$ is less than $\tau$ and $$0$$ otherwise.
+where we have assumed the output $$x$$ of the ABM describes the total number of infections over the simulation run. Here $$\mathbb{I}(\cdot \geq \tau)$$ denotes the indicator function that reuturns $$1$$ when $$x$$ is less than $$\tau$$ and $$0$$ otherwise.
 
 Given the loss function $$\ell$$, we propose many algorithms for learning a good proposal distribution $$q$$ by repeatedly sampling simulation runs from the ABM. Note that our approaches require no external data once the loss function has been defined! For the remainder of this post I will go walkthrough my favourite method for learning $$q$$ out of the ones we propose. You can check out the other methods in the [paper](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)!
 
