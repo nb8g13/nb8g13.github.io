@@ -87,6 +87,8 @@ class OpinionDynamics:
 
 ```
 
+The details of the model above are not important. SynthPop only requires access to a function which can run the simulator with a given set of parameters. In this case we can run the model via the `init_and_run` method. Before we can use, Synthpop we must first wrap our model in the 
+
 Designing an agent-based model (ABM) invetiably invovles generating a population of agents. Typically, modellers rely on datasets describing the underlying real-world population they are seeking to emulate. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents with realistic statistics. For instance, many practitioners use iterative proportional fitting (which economists often call raking) to generate a synthetic population that has the correct marginal statistics using cross-table data.
 
 So, what is the problem with this approach? It seems completely reasonable, but there are some issues. Firstly, the modeller might not have access to real-world data. This could be due to privacy concerns, or simply because the required data wasn't collected in the first place. In addition, the agent-based model is never used to inform population design. Say you are an epidemiologist who has built an epidemic simulator for the UK. If you run your simulator and every individual gets infected within a single day, you may suspect that your synthetic population is not very representative.
