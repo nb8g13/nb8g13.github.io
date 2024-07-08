@@ -19,7 +19,7 @@ from random import random
 class OpinionDynamics:
 
     def __init__(self, n_time_Steps=100_000, n_agents=1_000):
-        self.n_timesteps = n_timesteps
+        self.n_timesteps = n_steps
         self.n_agents = n_agents
 
     # Take a single step in the simulation
@@ -74,13 +74,17 @@ class OpinionDynamics:
             graph = nx.generator.barabasi_albert_graph(self.n_agents, 2)
             # Get each agent's neighbours
             neighbours = [
-                np.array([nbr for nbr in graph.neighbors(i)]) for i in range(self.n_agents)
+                np.array([
+                    nbr for nbr in graph.neighbors(i)
+                ]) for i in range(self.n_agents)
             ]
             
             # Forward simulate and save opinions
-            x = [os.copy()] + self._simulate(os, mus, gams, neighbours, self.n_timesteps, self.n_agents)
+            x1 = [os.copy()] 
+            x = x1 + self._simulate(os, mus, gams, neighbours, self.n_steps, self.n_agents)
 
             return x
+
 ```
 
 Designing an agent-based model (ABM) invetiably invovles generating a population of agents. Typically, modellers rely on datasets describing the underlying real-world population they are seeking to emulate. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents with realistic statistics. For instance, many practitioners use iterative proportional fitting (which economists often call raking) to generate a synthetic population that has the correct marginal statistics using cross-table data.
