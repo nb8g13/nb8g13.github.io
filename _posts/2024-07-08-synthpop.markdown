@@ -18,8 +18,8 @@ from random import random
 
 class OpinionDynamics:
 
-    def __init__(self, n_time_Steps=100_000, n_agents=1_000):
-        self.n_timesteps = n_steps
+    def __init__(self, n_steps=100_000, n_agents=1_000):
+        self.n_steps = n_steps
         self.n_agents = n_agents
 
     # Take a single step in the simulation
@@ -87,7 +87,46 @@ class OpinionDynamics:
 
 ```
 
-The details of the model above are not important. SynthPop only requires access to a function which can run the simulator with a given set of parameters. In this case we can run the model via the `init_and_run` method. Before we can use, Synthpop we must first wrap our model in the 
+The details of the model above are not important. SynthPop only requires access to a function which can run the simulator with a given set of parameters. In this case we can run the model via the `init_and_run` method. Before we can use Synthpop, we must first wrap our model in the `AbstractModel` interface. The only required function in this interface is the `run` method, which is used by SynthPop to generate samples from the simulator whilst learning the proposal distribtuion. However, the interface also includes the `step`, `observe` and `initialize` functions. We recommend you use these when possible to keep your code clean and organised. The `step` function updates the simulator for a single discrete time step, and hence may not be applicable for continuous time models. The `initialize` function performs any extra intializations not included in the constructor before the simulator is run. Lastly, the `observe` function takes in simulator output and returns the final features actually observed by SynthPop. 
+
+```
+from ..abstract import AbstractModel
+
+class UltravoxPopuli(AbstractModel):
+    def __init__(Self, n_steps=100_000, n_agents=1_000):
+        self.n_agents = n_agents
+        self.model = OpinionDynamics(n_steps, n_agents)
+    
+    # We don't need this function
+    def initialize(self):
+        pass
+    
+    # We don't need this function as we only care about full simulation runs
+    def step(self, *args, **kwargs):
+        pass
+    
+    def observe(self, x):
+        # Only report mean opinions 
+        return [np.array([np.mean(o) for o in x])]
+
+    # Generate model parameters and run the model
+    def run(self, generator):
+        os, mus, gams = generator(self.n_agents)
+        self.model.init_and_run(os, mus, gams)
+
+```
+
+You may notice that the `run` function takes a `generator` as input. The `generator` is reponsible for generating the input parameters for the simulator. Strictly speaking, the generator can be any callable, which returns a set of input parameters, but we recommend creating a class that extends the `AbstractGeneratorInterface`. In essence, the generator implicitly defines the sampling distribution for the structural parameters $\omega$ as well as the attribute distribution $f(\cdot \mid \theta)$
+
+```
+from ..abstract import AbstractGeneratorInterface
+
+class Generator(AbstractGenerator):
+
+    def __init__(self, params):
+        r, 
+
+```
 
 Designing an agent-based model (ABM) invetiably invovles generating a population of agents. Typically, modellers rely on datasets describing the underlying real-world population they are seeking to emulate. Armed with this data, the modeller can use their favourite algorithm to generate a population of agents with realistic statistics. For instance, many practitioners use iterative proportional fitting (which economists often call raking) to generate a synthetic population that has the correct marginal statistics using cross-table data.
 
