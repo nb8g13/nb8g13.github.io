@@ -14,3 +14,10 @@ categories: [Recent Papers]
       & |[blue, rotate=-15]| D
   \end{tikzcd}
 </script>
+
+<script>
+    \begin{tikzcd}[row sep=0.6cm,column sep=huge]
+        \iota \arrow{rr}{\scmbase} \arrow[swap]{d}{\omega} & & \prob_{\mathcal{M}_{\iota}} \arrow{d}{\tau} \\
+    \omega(\iota) \arrow{rr}{\scmabst} &  & \prob_{\,athcal{M}^{\prime}_{\omega(\iota)}} 
+    \end{tikzcd}
+<\script>
