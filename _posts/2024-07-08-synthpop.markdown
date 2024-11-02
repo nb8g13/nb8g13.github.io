@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "SynthPop"
-date: 2024-06-21
-last_modified_at: 2100-06-21
+date: 2100-06-21
+last_modified_at: 2024-06-21
+published: false
 categories: [Recent Papers]
 ---
 This blog post outlines SynthPop, the code library accompanying a recent paper which I worked on with my fantastic collaborators Joel Dyer and Arnau Quera-Bofarull. If you haven't checked out the previous [blog post]({% post_url 2024-06-22-population-synthesis %}) summarising our framework, please read it before this! SynthPop algorithms from our paper out of box on a model of your choice in order to learn synthetic populations that generate interesting scenarios.
