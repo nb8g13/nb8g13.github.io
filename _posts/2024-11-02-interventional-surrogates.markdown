@@ -40,4 +40,6 @@ categories: [Recent Papers]
   \end{tikzcd}
 </script>
 
+![Average Effort Over Time](/assets/images/IC_Error_diagram-4-1.png)
+
 <object data="{{ site.url }}{{ site.baseurl }}/assets/images/Algebra_I_Reference_Sheet.pdf" width="1000" height="1000" type="IC_EE"></object>
