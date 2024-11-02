@@ -15,9 +15,9 @@ categories: [Recent Papers]
   \end{tikzcd}
 </script>
 
-<script>
+<script type="text/tikz">
     \begin{tikzcd}[row sep=0.6cm,column sep=huge]
-        \iota \arrow{rr}{\scmbase} \arrow[swap]{d}{\omega} & & \prob_{\mathcal{M}_{\iota}} \arrow{d}{\tau} \\
-    \omega(\iota) \arrow{rr}{\scmabst} &  & \prob_{\,athcal{M}^{\prime}_{\omega(\iota)}} 
+        \iota \arrow{rr}{\mathcal{M}} \arrow[swap]{d}{\omega} & & \mathbb{P}_{\mathcal{M}_{\iota}} \arrow{d}{\tau} \\
+    \omega(\iota) \arrow{rr}{\mathcal{M}^{\prime}} &  & \mathbb{P}_{\mathcal{M}^{\prime}_{\omega(\iota)}} 
     \end{tikzcd}
 <\script>
