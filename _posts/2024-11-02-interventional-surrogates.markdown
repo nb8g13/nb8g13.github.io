@@ -25,7 +25,7 @@ categories: [Recent Papers]
 </script>
 
 <script type="text/tikz">
-    \begin{tikzcd}[row sep=0.6cm,column sep=huge, scale=5]
+    \begin{tikzcd}[row sep=0.6cm,column sep=huge]
         \iota \arrow{rr}{\mathcal{M}} \arrow[swap]{d}{\omega} & & \mathbb{P}_{\mathcal{M}_{\iota}} \arrow{d}{\tau} \\
         \omega(\iota) \arrow{rr}{\mathcal{M}^{\prime}} &  & \mathbb{P}_{\mathcal{M}^{\prime}_{\omega(\iota)}} 
     \end{tikzcd}
@@ -39,3 +39,5 @@ categories: [Recent Papers]
       & |[blue, rotate=-15]| D
   \end{tikzcd}
 </script>
+
+<object data="{{ site.url }}{{ site.baseurl }}/assets/images/Algebra_I_Reference_Sheet.pdf" width="1000" height="1000" type="IC_EE"></object>
