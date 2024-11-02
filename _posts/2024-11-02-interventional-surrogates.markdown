@@ -21,3 +21,12 @@ categories: [Recent Papers]
         \omega(\iota) \arrow{rr}{\mathcal{M}^{\prime}} &  & \mathbb{P}_{\mathcal{M}^{\prime}_{\omega(\iota)}} 
     \end{tikzcd}
 </script>
+
+<script type="text/tikz">
+  \begin{tikzcd}
+    A \arrow[r, "\phi"] \arrow[d, red]
+      & B \arrow[d, "\psi" red] \\
+    C \arrow[r, red, "\eta" blue]
+      & |[blue, rotate=-15]| D
+  \end{tikzcd}
+</script>
