@@ -6,7 +6,7 @@ last_modified_at: 2024-11-02
 categories: [Recent Papers]
 ---
 
-This blog post outlines a recent paper which I worked on with my fantastic collaborators Joel Dyer, Fabio Zennaro, Yorgos Felekis and Theo Damoulas. This work is set to be published at NeurIPS 2024 - check out the full paper [here](https://arxiv.org/abs/2312.11158)!
+This blog post outlines a recent paper which I worked on with my fantastic collaborators Joel Dyer, Fabio Zennaro, Yorgos Felekis, Theo Damoulas, Anisoara Calinescu and Mike Wooldridge. This work is set to be published at NeurIPS 2024 - check out the full paper [here](https://arxiv.org/abs/2312.11158)!
 
 ## ABMs and the Need for Surrogates
 
