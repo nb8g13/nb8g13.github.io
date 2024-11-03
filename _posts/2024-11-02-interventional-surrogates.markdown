@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Interventionally Consistent Surrogates for Agent-based Simulators"
+title: "Interventionally Consistent Surrogates for ABMs"
 date: 2024-11-02
 last_modified_at: 2024-11-02
 categories: [Recent Papers]
@@ -35,4 +35,6 @@ What makes a good abstraction? Say we want to observe a macroscopic output assoc
 
 ![Average Effort Over Time](/assets/images/IC_Error_diagram-6-1.png)
 
-In the diagram above, $$\mathbb{P}_{\mathcal{M}_{\iota}}$$ and $$\mathbb{P}_{\mathcal{M}^{\prime}_\omega(\iota)}$$ correspond to the interventional distributions associated with $$\iota$$ and $$\omega(\iota)$$ respectively. This is quite a stringent goal and one we are unlikely to achieve exactly. That is, whichever surrogate model and intervention map $$\omega$$ we choose, the interventional distribution attained by intervening then abstracting may differ from the interventional distribution attained by abstracting then intervening. Our goal should be to minimise the distance between these distributions as much as possible!
+In the diagram above, $$\mathbb{P}_{\mathcal{M}_{\iota}}$$ and $$\mathbb{P}_{\mathcal{M}^{\prime}_{\omega(\iota)}}$$ correspond to the interventional distributions associated with $$\iota$$ and $$\omega(\iota)$$ respectively. Commutativity is quite a stringent goal and one we are unlikely to achieve exactly for every intervention $\iota$. That is, whichever surrogate model and intervention map $$\omega$$ we choose, the interventional distribution attained by intervening then abstracting may differ from the interventional distribution attained by abstracting then intervening. Our goal should be to minimise the distance between these distributions as much as possible!
+
+![Average Effort Over Time](/assets/images/IC_Error_gap_diagram-1.png)
