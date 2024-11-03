@@ -77,6 +77,8 @@ $$
 
 Note that we do not need to forward simulate the ABM during training, as only evaluations of the surrogate densities $$q_{\iota}(\cdot \; ; \; \psi, \phi)$$ are required. In other words, a batch of interventions $$\iota_{b} \sim \eta$$ can be sampled and forward-simulated offline prior to surrogate training.
 
+Note that the method we propose is not the only way to learn an abstraction. In fact, Yorgos recently published a [paper](https://proceedings.mlr.press/v236/felekis24a) outlining an alternative approach based in optimal transport at CLEAR this year!
+
 ## The Importance of Interventional Data
 
 To highlight the efficacy of our approach we conduct experiments using an SIR ABM designed to model epidemics. In short, this ABM consists of individuals connected by a graph. Individuals can be susceptible (S), infected (I) or recovered (R). On each time step, infected individuals have some fixed probability of recovering, whilst susceptible individuals have some probability of becoming infected based on how many of their neighbours are infected. We construct a set of neural network surrogates which sequentially process outputs from the classical [SIR ODE model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology) that models the fraction of susceptible, infected and recovered individuals through time. 
