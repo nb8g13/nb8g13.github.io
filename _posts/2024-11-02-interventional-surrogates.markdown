@@ -45,8 +45,21 @@ $$
     d_{\tau, \omega}(\mathcal{M}, \mathcal{M}^{\prime}) = \mathbb{E}_{\iota \sim \eta} \left[ d\left(\tau_{\#} (\mathbb{P}_{\mathcal{M}_{\iota}}) ,\, \mathbb{P}_{\mathcal{M}^{\prime}_{\omega(\iota)}}\right)\right].
 $$
 
-Here, $\eta$ is a distribution over base interventions, whilst $d$ is a divergence between probability distributions. In words, the abstraction error measures the average difference between intervening and abstracting versus intervening then abstracting. The abstraction error depends heavily on the interventional distribution $\eta$, which should be carefully chosen by a domain expert and reflects the interventions they care most about.
+Here, $$\eta$$ is a distribution over base interventions, whilst $d$ is a divergence between probability distributions. In words, the abstraction error measures the average difference between intervening and abstracting versus intervening then abstracting. The abstraction error depends heavily on the interventional distribution $$\eta$$, which should be carefully chosen by a domain expert and reflects the interventions they care most about.
 
 ## Learning an Abstraction
+
+Recall that our goal was to learn surrogate models for ABMs. The abstraction error presents a natural metric for us to optimise. By setting the the divergence $d$ to the KL-divergence, we may jointly learn both a paramterised surrogate model and an paramterised intervention map that minimises the abstraction error.
+
+$$
+\begin{equation}\label{eq:our_loss}
+    \phi^{\star}, \psi^{\star}
+    % ) 
+    = %\in 
+    \argmin_{\phi \in \Phi, \psi \in \Psi}d_{\tau, \omega^{\phi}}(\mathcal{M}, \mathcal{M}^{\psi}).
+\end{equation}
+$$
+
+Here, $$\phi$$ corresponds to parameters of the intervention map $$\omega$$ whilst $\phi$ correspond to parameters of the surrogate model $\mathcal{M}^{\phi}$. 
 
 ## Some Experiments
