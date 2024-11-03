@@ -71,7 +71,7 @@ $$
     q_{\iota_{b}}(\mathbf{y}_{b} \; ; \; \psi, \phi).
 $$
 
-Note that we do not need to forward simulate the ABM during training, as only evaluations of the surrogate densities $$q_{\psi, \omega^{\phi}}$$ are required. In other words, a batch of interventions $$\iota_{b} \sim \eta$$ can be sampled and forward-simulated offline prior to surrogate training.
+Note that we do not need to forward simulate the ABM during training, as only evaluations of the surrogate densities $$q_{\iota}(\cdot \; ; \; \psi, \phi)$$ are required. In other words, a batch of interventions $$\iota_{b} \sim \eta$$ can be sampled and forward-simulated offline prior to surrogate training.
 
 ## The Importance of Interventional Data
 
