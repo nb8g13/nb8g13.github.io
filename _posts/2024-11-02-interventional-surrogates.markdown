@@ -56,7 +56,7 @@ $$
     \phi^{\star}, \psi^{\star}
     % ) 
     = %\in 
-    \arg\min_{\phi \in \Phi, \psi \in \Psi}d_{\tau, \omega^{\phi}}(\mathcal{M}, \mathcal{M}^{\psi}).
+    \arg\min_{\phi \in \Phi, \psi \in \Psi}d_{\tau, \omega_{\phi}}(\mathcal{M}, \mathcal{M}^{\psi}).
 \end{equation}
 $$
 
@@ -64,9 +64,9 @@ Here, $$\phi$$ corresponds to parameters of the intervention map $$\omega$$ whil
 
 $$
 \nabla_{\phi,\psi}\, d_{\tau,\omega^{\phi}}(\mathcal{M}, \mathcal{M}^{\psi}) 
-    \approx \frac{1}{B} \sum_{b=1}^B -\nabla_{\phi,\psi}
+    \approx \frac{1}{B} \sum_{b=1}^B - \nabla_{\phi,\psi}
     \log
-    q^{\psi}_{\omega^{\phi}(\iota^{(b)})}
+    q^{\psi}_{\omega_{\phi}(\iota^{(b)})}
     (\mathbf{y}^{(b)}).
 $$
 
@@ -79,3 +79,5 @@ To highlight the efficacy of our approach we conduct experiments using an SIR AB
 For base interventions, we consider lockdowns that correspond to severing connections in the underlying graph of the SIR ABM for a fixed duration. For our surrogates, we consider interventions that directly edit the parameters of the underlying SIR ODE model for fixed durations. The image below shows three plots. The central plot shows a simulation of the SIR ABM, where a lockdown $$\iota$$ was performed (vertical line). The left plot shows a simulation of a surrgate model trained using the stochastic gradient scheme from the previous section, where the intervention $$\omega^{\phi}(\iota)$$ was performed. Note that the surrogate matches the ABM very well! The right plot shows a similar plot but for a surrogate trained with observational ABM simulations where no lockdowns were performed. As one would expect, this surrogate cannot replicate the effect of a lockdown in the ABM! 
 
 ![SIR simulations](/assets/images/LODERNN.png)
+
+For more details about our approach, check out the full [paper](https://arxiv.org/abs/2312.11158)!
