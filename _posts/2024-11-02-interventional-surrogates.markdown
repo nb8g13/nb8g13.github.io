@@ -68,8 +68,8 @@ $$
 \nabla_{\phi,\psi}\, d_{\tau,\omega^{\phi}}(\mathcal{M}, \mathcal{M}^{\psi}) 
     \approx \frac{1}{B} \sum_{b=1}^B - \nabla_{\phi,\psi}
     \log
-    q^{\psi, \phi}_{\iota^{(b)}}
-    (\mathbf{y}^{(b)}).
+    q^{\psi, \phi}_{\iota_{(b)}}
+    (\mathbf{y}_{(b)}).
 $$
 
 Note that we do not need to forward simulate the ABM during training, as only evaluations of the surrogate densities $$q_{\psi, \omega^{\phi}}$$ are required. In other words, a batch of interventions $$\iota^{(b)} \sim \eta$$ can be sampled and forward-simulated offline prior to surrogate training.
