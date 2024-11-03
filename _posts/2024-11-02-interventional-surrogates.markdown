@@ -49,7 +49,7 @@ Here, $$\eta$$ is a distribution over base interventions, whilst $$d$$ is a dive
 
 ## Learning an Abstraction
 
-Recall that our goal was to learn surrogate models for ABMs. The abstraction error presents a natural metric for us to optimise. By setting the the divergence $d$ to the KL-divergence, we may jointly learn both a paramterised surrogate model and an paramterised intervention map that minimises the abstraction error.
+Recall that our goal was to learn surrogate models for ABMs. The abstraction error presents a natural metric for us to optimise. By setting the the divergence $$d$$ to the KL-divergence, we may jointly learn both a paramterised surrogate model and a paramterised intervention map that minimises the abstraction error.
 
 $$
 \begin{equation}\label{eq:our_loss}
@@ -68,7 +68,7 @@ $$
 \nabla_{\phi,\psi}\, d_{\tau,\omega^{\phi}}(\mathcal{M}, \mathcal{M}^{\psi}) 
     \approx \frac{1}{B} \sum_{b=1}^B - \nabla_{\phi,\psi}
     \log
-    q_{\iota_{b}}(\mathbf{y}_{(b) \; ; \; \psi, \phi}).
+    q_{\iota_{b}}(\mathbf{y}_{(b)} \; ; \; \psi, \phi).
 $$
 
 Note that we do not need to forward simulate the ABM during training, as only evaluations of the surrogate densities $$q_{\psi, \omega^{\phi}}$$ are required. In other words, a batch of interventions $$\iota^{(b)} \sim \eta$$ can be sampled and forward-simulated offline prior to surrogate training.
@@ -77,7 +77,7 @@ Note that we do not need to forward simulate the ABM during training, as only ev
 
 To highlight the efficacy of our approach we conduct experiments using an SIR ABM designed to model epidemics. In short, this ABM consists of individuals connected by a graph. Individuals can be susceptible (S), infected (I) or recovered (R). On each time step, infected indviduals have some fixed probability of recovering, whilst susceptible individuals have some probability of becoming infected based on how many of their neighbours are infected. We construct a set of neural network surrogates which sequentially process outputs from classical SIR ODE model that simply models the fraction of susceptible, infected and recovered individuals through time. 
 
-For base interventions, we consider lockdowns that correspond to severing connections in the underlying graph of the SIR ABM for a fixed duration. For our surrogates, we consider interventions that directly edit the parameters of the underlying SIR ODE model for fixed durations. The image below shows three plots. The central plot shows a simulation of the SIR ABM, where a lockdown $$\iota$$ was performed (vertical line). The left plot shows a simulation of a surrgate model trained using the stochastic gradient scheme from the previous section, where the intervention $$\omega^{\phi}(\iota)$$ was performed. Note that the surrogate matches the ABM very well! The right plot shows a similar plot but for a surrogate trained with observational ABM simulations where no lockdowns were performed. As one would expect, this surrogate cannot replicate the effect of a lockdown in the ABM! 
+For base interventions, we consider lockdowns that correspond to severing connections in the underlying graph of the SIR ABM for a fixed duration. For our surrogates, we consider interventions that directly edit the parameters of the underlying SIR ODE model for fixed durations. The image below shows three plots. The central plot shows a simulation of the SIR ABM, where a lockdown $$\iota$$ was performed (vertical line). The left plot shows a simulation of a surrgate model trained using the stochastic gradient scheme from the previous section, where the intervention $$\omega^{\phi}(\iota)$$ was performed. Note that the surrogate matches the ABM very well! The right plot shows a similar simulation but for a surrogate trained with observational ABM simulations where no lockdowns were performed. As one would expect, this surrogate cannot replicate the effect of a lockdown in the ABM! 
 
 ![SIR simulations](/assets/images/LODERNN.png)
 
