@@ -6,7 +6,7 @@ permalink: /publications/
 
 For a full list of my publications I recommend checking out my  <span style="color:blue">[Scholar](https://scholar.google.com/citations?hl=en&user=bfaCPiYAAAAJ)</span> profile.
 
-You can also find my CV here.
+You can also find my (probably outdated) CV [here]({{ site.url }}/assets/cv-2024.pdf).
 
 Below is a list of current working papers, as well as recent published work I am interested in extending/discussing.
 
