@@ -10,12 +10,16 @@ You can also find my CV here.
 
 Below is a list of current working papers, as well as recent published work I am interested in extending/discussing.
 
----
+<!-- --- -->
 
-## Working Papers
+<!-- ## Working Papers -->
+
+
+
+## Recent Work
 
 ---
-### Interventionally Consistent Surrogates for Agent-based Simulators  <span style="color:blue"> **\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:eQOLeE2rZwMC)\]**</span>
+### Interventionally Consistent Surrogates for Agent-based Simulators (NeurIPS 2024)  <span style="color:blue"> **\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:eQOLeE2rZwMC)\]**</span>
 
 **Authors**: Joel Dyer, Nicholas Bishop, Yorgos Felekis, Fabio Massimo Zennaro, Anisoara Calinescu, Theodoros Damoulas, Michael Wooldridge
 
@@ -25,9 +29,6 @@ Below is a list of current working papers, as well as recent published work I am
 
 ---
 
-## Recent Work
-
----
 ### Population synthesis as scenario generation for simulation-based planning under uncertainty (AAMAS 2024)  <span style="color:blue">**\[[Link](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bfaCPiYAAAAJ&citation_for_view=bfaCPiYAAAAJ:YsMSGLbcyi4C)\]**</span>
 
 **Authors**: Joel Dyer, Arnau Quera-Bofarull, Nicholas bishop, J. Doyne Farmer, Anisoara Calinescu, Michael Wooldridge
