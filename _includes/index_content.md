@@ -1,4 +1,4 @@
-<img src="assets/images/newyork.jpg" width="200">
+<img src="assets/images/newyork3.jpg" width="200">
 
 ### Who Am I?
 
