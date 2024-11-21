@@ -1,4 +1,9 @@
-<img src="assets/images/newyork3.jpg" width="200">
+
+<div align='center'>
+   <img src="assets/images/newyork3.jpg" width="200"><br/>
+</div>
+
+
 
 ### Who Am I?
 
