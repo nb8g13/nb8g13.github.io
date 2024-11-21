@@ -1,6 +1,6 @@
 
 <div align='center'>
-   <img src="assets/images/newyork3.jpg" width="200"><br/>
+   <img style="border-radius:10px;" src="assets/images/newyork3.jpg" width="200"><br/>
 </div>
 
 
