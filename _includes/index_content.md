@@ -1,3 +1,5 @@
+<img src="assets/images/newyork.jpg" width="200">
+
 ### Who Am I?
 
 I am a postodctoral researcher at the University of Oxford. More specifically, 
